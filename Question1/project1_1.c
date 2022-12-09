@@ -21,10 +21,10 @@ int main(int argc, char * argv[]){
                 printf("Hello from child %d PID: %d from parent ID: %d\n", count, getpid(), getppid());
                 exit(0);
             } 
+            else{
+                wait(NULL);
+            }
         }
-    }
-    for(int i=0; i<result;i++){
-        wait(NULL);
     }
     printf("Count %d\n",count);
 
