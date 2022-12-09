@@ -7,7 +7,7 @@
 
 int main(int argc, char * argv[]){
     int result=atoi(argv[1]);
-    printf("Result:%d\n", result);
+    printf("Number of child processes:%d\n", result);
     pid_t pid;
     int count=0;
     

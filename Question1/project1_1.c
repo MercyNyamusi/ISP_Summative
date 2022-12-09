@@ -10,6 +10,8 @@ int main(int argc, char * argv[]){
     pid_t pid;
     int count =0;
     int result=atoi(argv[1]);
+    printf("Number of child processes:%d\n", result);
+
     for(int i=0; i<result;i++){
         pid=fork();
         if(pid==-1)
