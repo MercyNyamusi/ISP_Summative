@@ -3,30 +3,32 @@
 #include <unistd.h>
 #include<sys/wait.h>
 #include <sys/types.h>
-#include <math.h>
 
 int main(int argc, char * argv[]){
     int stat;
     pid_t pid;
     int count =0;
-    int result=atoi(argv[1]);
+    int result=atoi(argv[1]);//converts command line argument to integer
     printf("Number of child processes:%d\n", result);
 
     for(int i=0; i<result;i++){
+        
         pid=fork();
-        if(pid==-1)
+
+        if(pid==-1)        //checks whether process has been created successfully
             printf("Child process creation was unsuccessful");
         else{
             count++;
             
-            if(pid==0){
+            if(pid==0){//child process
                 printf("Hello from child %d PID: %d from parent ID: %d\n", count, getpid(), getppid());
-                exit(0);
+                exit(0); //exits to prevent the child process from creating its own child process
             } 
             else{
-                wait(NULL);
+                wait(NULL);//parent process waiting for child process
             }
         }
+        
     }
     printf("Count %d\n",count);
 
